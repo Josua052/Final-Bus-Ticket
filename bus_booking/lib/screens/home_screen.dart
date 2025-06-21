@@ -340,10 +340,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               label: 'Tanggal Keberangkatan',
                               value:
                                   selectedDate == null
-                                      ? null
-                                      : DateFormat(
-                                        'dd MMMM andando',
-                                      ).format(selectedDate!),
+                                      ? "Tanggal keberangkatan"
+                                      : "${selectedDate!.day.toString().padLeft(2, '0')}-${selectedDate!.month.toString().padLeft(2, '0')}-${selectedDate!.year}",
                               icon: Icons.calendar_today,
                               onTap: _pickDate,
                             ),
@@ -360,9 +358,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           if (selectedFrom != null &&
                                               selectedTo != null &&
                                               selectedDate != null) {
-                                            final formattedDate = DateFormat(
-                                              'dd MMM andando',
-                                            ).format(selectedDate!);
+                                            final formattedDate = 
+                                            "${selectedDate!.day.toString().padLeft(2, '0')} ${_monthName(selectedDate!.month)} ${selectedDate!.year}";
                                             Navigator.push(
                                               context,
                                               MaterialPageRoute(
